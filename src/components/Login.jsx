@@ -36,7 +36,7 @@ const Login = () => {
                 className="text-sm text-gray-900 cursor-pointer"
               >
                 <input type="checkbox" id="remember-me" className="mr-2" />
-                Remember me
+                Remember me csabcksdboifcslkdbc
               </label>
               <a
                 href="#"
