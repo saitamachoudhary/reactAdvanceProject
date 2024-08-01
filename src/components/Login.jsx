@@ -1,19 +1,32 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import userData from '../LoginData.json';
 
 const Login = () => {
+    const[email,setemail]=React.useState(null);
+    const[password,setpassword]=React.useState(null);
+
+   const navigate=useNavigate();
+   const navigateTo=(e)=>{
+        e.preventDefault();
+     const user=userData.find((user)=>user.email===email&&user.password===password);
+       console.log(user);
+   }
   return (
-    <div className="">
+    <div className="bg-[#FFFCE8]">
       <div className="flex flex-col items-center justify-center h-screen">
         <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Login</h2>
           <form className="flex flex-col">
             <input
               type="email"
+              onChange={(e)=>{setpassword(e.target.value)}}
               className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
               placeholder="Email address"
             />
             <input
               type="password"
+              onChange={(e)=>{setpassword(e.target.value)}}
               className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
               placeholder="Password"
             />
@@ -44,6 +57,7 @@ const Login = () => {
             </div>
             <button
               type="submit"
+              onClick={navigateTo}
               className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150"
             >
               Login
